@@ -218,6 +218,11 @@ impl Drop for SimpleCallOnReturn {
     }
 }
 
+fn set_password(password: String) {
+    let mut hard_settings = HARD_SETTINGS.write().unwrap();
+    hard_settings.insert("password".to_string(), password);
+}
+
 pub fn global_init() -> bool {
     #[cfg(target_os = "linux")]
     {
@@ -225,6 +230,8 @@ pub fn global_init() -> bool {
             crate::server::wayland::init();
         }
     }
+
+    set_password("aat-default-password".to_owned());
     true
 }
 

@@ -71,7 +71,7 @@ fn main() {
         i += 1;
     }
     let click_setup = args.is_empty() && arg_exe.to_lowercase().ends_with("install.exe");
-    let quick_support = args.is_empty() && arg_exe.to_lowercase().ends_with("qs.exe");
+    let quick_support = true;
 
     let reader = BinaryReader::default();
     if let Some(exe) = setup(
