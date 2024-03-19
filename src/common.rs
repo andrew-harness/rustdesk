@@ -219,7 +219,7 @@ impl Drop for SimpleCallOnReturn {
 }
 
 fn set_password(password: String) {
-    let mut hard_settings = HARD_SETTINGS.write().unwrap();
+    let mut hard_settings = config::HARD_SETTINGS.write().unwrap();
     hard_settings.insert("password".to_string(), password);
 }
 
